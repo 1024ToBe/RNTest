@@ -9,15 +9,15 @@ const ActivityIndicator02 = () => (
         <ActivityIndicator size="large" color='#00ff00' />
     </View>
 );
-
-
+    
 const ActivityIndicator01 = () => (
     <View style={[styles.container, styles.x]}>
         <Button
-            onPress={() => { Alert.alert('点我') }}
+            onPress={() => {Alert.alert('点我') }}
             title="Learn More"
             color="#841584"
             accessibilityLabel="Learn more about this purple button"
+            text
         />
     </View>
 
@@ -26,7 +26,8 @@ const ActivityIndicator01 = () => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center"
+        justifyContent: "center",
+        marginTop: 200
     },
 
     x: {
