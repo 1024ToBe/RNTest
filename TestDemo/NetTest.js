@@ -17,7 +17,6 @@ const NetTest = () => {
         //     });
         get(ConstApi.test.api)({ requestPrams: 'RN' }).then(result => {
             setMsg(JSON.stringify(result));
-            console.log('1=====',JSON.stringify(result));
         }).catch(e => {
             console.log(e);
             setMsg(JSON.stringify(e));

@@ -24,15 +24,15 @@ function handleData(doAction: Promise<any>) {
     return new Promise((resolve, reject) => { 
         doAction.then((res) => { 
             const type = res.headers.get('Content-Type');
-            if ((type||'' ).indexof('json')!==-1) { 
+            if ((type || '' ).indexOf('json')!==-1) { 
                 return res.json();
             }
             return res.text();
         }).then((result) => { 
-            console.log('1====',JSON.stringify(result));
+            console.log(JSON.stringify(result));
             resolve(result);
         }).catch((error) => { 
-            console.log('2====',error);
+            console.log(error);
             reject(error);
         })
     })
