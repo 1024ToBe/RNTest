@@ -14,6 +14,6 @@ import SaveData from './TestDemo/SaveData';
 
 export default function App() {
   return (
-    <SaveData/>
+    <NetTest/>
   );
 }

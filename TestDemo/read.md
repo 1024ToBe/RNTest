@@ -48,3 +48,7 @@ useSate函数的入参是index默认值0，返回值是更新后的index，和�
 1.组件 进行第一次渲染，因为你将0最为默认初始值，所以useState函数返回 [0,setIndex],React记住0是最新的state值
 2.你更新的state，比如当用户点击按钮是调用setIndex(Index+1),index=0，所以它是setIndex(1),React记住1是最新的state值
 3.组件 进行第二次渲染 React看到是初始状态仍是调用useState(0),但React记住了你上次设置Index=1，所以返回[1,setIndex]
+
+//快捷键
+1.文档注释 /** +回车
+2/代码对齐 shift+alt+F

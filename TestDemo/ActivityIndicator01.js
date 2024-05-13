@@ -1,7 +1,7 @@
 import React from "react";
 import { ActivityIndicator, StyleSheet, View, Button, Alert } from "react-native";
 //()=>expression  函数体是表达式，省略函数体的大括号和return关键字
-const ActivityIndicator02 = () => (
+const ActivityIndicator01 = () => (
     <View style={[styles.container, styles.x]}>
         <ActivityIndicator />
         <ActivityIndicator size="large" />
@@ -10,7 +10,7 @@ const ActivityIndicator02 = () => (
     </View>
 );
     
-const ActivityIndicator01 = () => (
+const ActivityIndicator02 = () => (
     <View style={[styles.container, styles.x]}>
         <Button
             onPress={() => {Alert.alert('点我') }}
@@ -26,8 +26,7 @@ const ActivityIndicator01 = () => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        marginTop: 200
+        justifyContent: "center"
     },
 
     x: {
