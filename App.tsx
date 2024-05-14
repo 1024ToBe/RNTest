@@ -11,9 +11,10 @@ import FlatList from './TestDemo/FlatList';
 import ActivityIndicator01 from './TestDemo/ActivityIndicator01';
 import NetTest from './TestDemo/NetTest';
 import SaveData from './TestDemo/SaveData';
+import LoginPage from './TestDemo/Page/LoginPage';
 
 export default function App() {
   return (
-    <NetTest/>
+    <LoginPage/>
   );
 }
