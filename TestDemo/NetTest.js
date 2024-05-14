@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, SafeAreaView, TouchableOpacity, Text } from "react-native";
-import { get } from "./HiNet";
+import { get, post } from "./HiNet";
 import ConstApi from "./ConstApi";
 const NetTest = () => {
     const [msg, setMsg] = useState('');
@@ -15,7 +15,18 @@ const NetTest = () => {
         //         console.log(e);
         //         setMsg(JSON.stringify(e));
         //     });
-        get(ConstApi.test.api)({ requestPrams: 'RN' }).then(result => {
+        // get(ConstApi.test.api)({ requestPrams: 'RN' })
+        // .then(result => {
+        //     setMsg(JSON.stringify(result));
+        // }).catch(e => {
+        //     console.log(e);
+        //     setMsg(JSON.stringify(e));
+        // });
+
+        const formData = new FormData();
+        formData.append("requestPram", "RN");
+        post(ConstApi.test.api)(formData)()
+        .then(result => {
             setMsg(JSON.stringify(result));
         }).catch(e => {
             console.log(e);

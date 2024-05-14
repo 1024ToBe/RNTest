@@ -12,8 +12,24 @@ export function get(api: string) {
                 ...headers,
             }
         }));
-
     }
+}
+
+export function post(api:string) { 
+    return (params: {}) => {
+        return async (queryParams?: {}|string) => { 
+            const { headers, url } = ConstApi;
+            var data = params instanceof FormData ? params : JSON.stringify(params);
+            return handleData(fetch(builParams(url + api, params), {
+                method: 'post',
+                body: data,
+                headers: {
+                    'content-type': 'application/json',
+                    ...headers,
+                }
+            }));
+        }
+     }
 }
 
 /**
