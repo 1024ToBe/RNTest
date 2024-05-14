@@ -24,7 +24,7 @@ const NetTest = () => {
         // });
 
         const formData = new FormData();
-        formData.append("requestPram", "RN");
+        formData.append("requestPrams", "RN");
         post(ConstApi.test.api)(formData)()
         .then(result => {
             setMsg(JSON.stringify(result));

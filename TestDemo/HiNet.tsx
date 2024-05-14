@@ -15,13 +15,16 @@ export function get(api: string) {
     }
 }
 
-export function post(api:string) { 
+export function post(api: string) { 
+    /**
+     * 第一个参数作为body参数，第二个参数作为url path或者查询参数
+     */
     return (params: {}) => {
-        return async (queryParams?: {}|string) => { 
+        return async (queryParms?: {} | string) => { 
             const { headers, url } = ConstApi;
             var data = params instanceof FormData ? params : JSON.stringify(params);
-            return handleData(fetch(builParams(url + api, params), {
-                method: 'post',
+            return handleData(fetch(builParams(url + api, queryParms), {
+                method: 'POST',
                 body: data,
                 headers: {
                     'content-type': 'application/json',
