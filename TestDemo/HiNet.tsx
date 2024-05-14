@@ -48,8 +48,15 @@ function handleData(doAction: Promise<any>) {
             }
             return res.text();
         }).then((result) => { 
-            console.log(JSON.stringify(result));
-            resolve(result);
+            if (typeof result === 'string') {
+                throw new Error(result);
+            } 
+            const { code, msg, data: { list = undefined } = {} } = result;
+            if (code === 401) { 
+                //TODO:跳转登录页
+                return;
+            }
+            resolve(list || result);
         }).catch((error) => { 
             console.log(error);
             reject(error);
