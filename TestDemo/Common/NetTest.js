@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, SafeAreaView, TouchableOpacity, Text } from "react-native";
 import { get, post } from "./HiNet";
-import ConstApi from "./ConstApi";
+import ConstApi from "../ConstApi";
 const NetTest = () => {
     const [msg, setMsg] = useState('');
 
@@ -25,7 +25,9 @@ const NetTest = () => {
 
         const formData = new FormData();
         formData.append("requestPrams", "RN");
-        post(ConstApi.test.api)(formData)()
+        formData.append('userName', 'jolly1');
+        formData.append('password', '1024');
+        post(ConstApi.login.api)(formData)()
         .then(result => {
             setMsg(JSON.stringify(result));
         }).catch(e => {

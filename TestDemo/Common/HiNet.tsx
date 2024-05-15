@@ -1,4 +1,4 @@
-import ConstApi from "./ConstApi";
+import ConstApi from "../ConstApi";
 /**
  * 
  * @param api 
@@ -15,15 +15,15 @@ export function get(api: string) {
     }
 }
 
-export function post(api: string) { 
+export function post(api:string) { 
     /**
      * 第一个参数作为body参数，第二个参数作为url path或者查询参数
      */
-    return (params: {}) => {
-        return async (queryParms?: {} | string) => { 
+    return (params:{}) => {
+        return async (queryParmas?: {} | string) => { 
             const { headers, url } = ConstApi;
             var data = params instanceof FormData ? params : JSON.stringify(params);
-            return handleData(fetch(builParams(url + api, queryParms), {
+            return handleData(fetch(builParams(url+api, queryParmas), {
                 method: 'POST',
                 body: data,
                 headers: {
