@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Linking, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { ConfirmButton, Tips, NavBar,Input } from "../Common/LoginComponent";
-import LoginDao from "../Common/LoginDao";
-import ConstApi from "../ConstApi";
+import { ConfirmButton, Tips, NavBar,Input } from "../../TestDemo/Common/LoginComponent";
+import LoginDao from "../../TestDemo/Common/LoginDao";
+import ConstApi from "../../TestDemo/ConstApi";
 export default (props: any) => { 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
