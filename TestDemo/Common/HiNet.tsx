@@ -1,15 +1,18 @@
 import ConstApi from "../ConstApi";
+import { getBoarding } from "../Util/BoardingUtil";
 /**
  * 
  * @param api 
  * @returns 
  */
 export function get(api: string) {
-    return async (params?: {}) => {
+    return async (params?: {}) => {//函数柯里化
+        const boarding = await getBoarding();
         const { headers, url } = ConstApi;
         return handleData(fetch(builParams(url + api, params), {
             headers: {
                 ...headers,
+                'boarding-pass':boarding || ''
             }
         }));
     }
@@ -21,6 +24,7 @@ export function post(api:string) {
      */
     return (params:{}) => {
         return async (queryParmas?: {} | string) => { 
+            const boarding = await getBoarding();
             const { headers, url } = ConstApi;
             var data = params instanceof FormData ? params : JSON.stringify(params);
             return handleData(fetch(builParams(url+api, queryParmas), {
@@ -29,6 +33,7 @@ export function post(api:string) {
                 headers: {
                     'content-type': 'application/json',
                     ...headers,
+                    'boarding-pass':boarding || ''
                 }
             }));
         }

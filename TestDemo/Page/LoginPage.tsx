@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Linking, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { ConfirmButton, Tips, NavBar,Input } from "../Common/LoginComponent";
 import LoginDao from "../Common/LoginDao";
+import ConstApi from "../ConstApi";
 export default (props: any) => { 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -26,7 +27,11 @@ export default (props: any) => {
     };
     return (
         <SafeAreaView style={styles.root}>
-            <NavBar title="登录" rightTitle="注册" />
+            <NavBar title="登录" rightTitle="注册"
+                onRightCick={() => { 
+                    Linking.openURL(ConstApi.apiDoc);
+                }}
+            />
             <View style={styles.line}/>
             <View style={styles.content}>
                 <Input
@@ -54,7 +59,13 @@ const styles = StyleSheet.create({
     },
     content: {
         paddingTop: 20,
-        backgroundColor:'#F1F5F6',
+        backgroundColor: '#F1F5F6',
+        /**
+         * 父元素宽度>子元素，子元素如何分配剩余空间，默认值0
+         * 举例-父A：400，子B：100，子C：100，剩余200
+         * 子B=1，子C=1===B：100+（200/2）=200，C同样
+         * 子B=1，子C=0===B：100+（200/1）=400，C=100
+         */
         flexGrow:1
     },
     line: {

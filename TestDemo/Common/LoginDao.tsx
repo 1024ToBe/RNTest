@@ -1,5 +1,6 @@
 
 import ConstApi from "../ConstApi";
+import { saveBoarding } from "../Util/BoardingUtil";
 import { post } from "./HiNet";
 export default class LoginDao {
     private static instance: LoginDao;
@@ -22,6 +23,7 @@ export default class LoginDao {
             post(api)(formData)().then((res: any) => {
                 const { code, msg, data } = res;
                 if (code === 0) {
+                    saveBoarding(data);
                     resolve(data || msg);
                 } else {
                     reject(res);

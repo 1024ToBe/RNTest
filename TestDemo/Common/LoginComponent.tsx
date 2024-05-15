@@ -100,7 +100,16 @@ const styles = StyleSheet.create({
     },
     navBar: {
         flexDirection: 'row',
+        /**
+         * alignItems：交叉轴方向（Y轴colum-垂直布局）
+         * justifyContent：主轴方向布局（X轴row-水平布局）
+         */
         alignItems: 'center',
+        
+        /**
+         * space-between：完全两侧分布对齐 左右不留任何空隙
+         * space-round：两侧留一部分然后分布对齐
+         */
         justifyContent: 'space-between',
         height: 44
     },
