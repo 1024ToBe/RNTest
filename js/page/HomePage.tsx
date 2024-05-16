@@ -1,10 +1,13 @@
 import React, { Component, useState } from "react";
 import { StyleSheet, Text, View } from 'react-native';
-export default class Index extends Component {
+import NavigationUtil from "./navigator/NavigationUtil";
+export default class Index extends Component<any,any>{
     render() {
+        //方便其他页面跳转的时候不传navigation
+        NavigationUtil.navigation = this.props.navigation;
         return (
             <View style={styles.container}>
-                <Text>最热</Text>
+                <Text>首页</Text>
             </View>
         );
     }
@@ -12,6 +15,7 @@ export default class Index extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        paddingTop:100,
     }
 })

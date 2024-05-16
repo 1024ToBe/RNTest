@@ -3,11 +3,14 @@ import { Linking, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { ConfirmButton, Tips, NavBar,Input } from "../../TestDemo/Common/LoginComponent";
 import LoginDao from "../../TestDemo/Common/LoginDao";
 import ConstApi from "../../TestDemo/ConstApi";
+import NavigationUtil from "./navigator/NavigationUtil";
 export default (props: any) => { 
+    const { navigation } = props;
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState('ddd');
     const [helpeUrl, setHelpUrl] = useState('https://baidu.com');
+   
     const onLogin = () => { 
         if (userName === ''|| password === '') { 
             setMsg('用户名或密码不能为空');
@@ -19,6 +22,7 @@ export default (props: any) => {
             .login(userName, password)
             .then((res) => {
                 setMsg('登录成功');
+                NavigationUtil.resetToHomePage({navigation});
             }).catch((e) => {
                 const { code, data: { helpUrl = '' } = {}, msg } = e;
                 setMsg(msg);
@@ -29,7 +33,7 @@ export default (props: any) => {
         <SafeAreaView style={styles.root}>
             <NavBar title="登录" rightTitle="注册"
                 onRightCick={() => { 
-                    Linking.openURL(ConstApi.apiDoc);
+                    NavigationUtil.resetToHomePage(navigation);
                 }}
             />
             <View style={styles.line}/>

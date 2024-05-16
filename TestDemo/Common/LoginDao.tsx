@@ -33,5 +33,27 @@ export default class LoginDao {
             })
         })
     }
+    registration(userName: string, password: string, imoocid: string,orderid: string): Promise<any> {
+        return new Promise<void>((resolve, reject) => {
+            const {
+                login: { api }
+            } = ConstApi;
+            const formData = new FormData();
+            formData.append('userName', userName);
+            formData.append('password', password);
+            console.log('---传参---',userName,password);
+            post(api)(formData)().then((res: any) => {
+                const { code, msg, data } = res;
+                if (code === 0) {
+                    saveBoarding(data);
+                    resolve(data || msg);
+                } else {
+                    reject(res);
+                }
+            }).catch((e) => {
+                reject({ code: -1, msg: '哎呀出错了' });
+            })
+        })
+    }
 
 }
