@@ -23,6 +23,11 @@ export default function App(){
             <NavigationContainer>
                 <Stack.Navigator>
                     <Stack.Screen
+                        name="WelcomPage"
+                        component={WelcomPage}
+                        options={{ headerShown:false }}
+                    />
+                    <Stack.Screen
                         name="LoginPage"
                         component={LoginPage}
                         options={{ headerShown:false }}
@@ -70,11 +75,6 @@ export default function App(){
                     <Stack.Screen
                         name="WebviewPage"
                         component={WebviewPage}
-                        options={{ headerShown:false }}
-                    />
-                    <Stack.Screen
-                        name="WelcomPage"
-                        component={WelcomPage}
                         options={{ headerShown:false }}
                     />
                     <Stack.Screen

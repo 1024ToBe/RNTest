@@ -4,7 +4,7 @@ import { ConfirmButton, Tips, NavBar,Input } from "../../TestDemo/Common/LoginCo
 import LoginDao from "../../TestDemo/Common/LoginDao";
 import ConstApi from "../../TestDemo/ConstApi";
 import NavigationUtil from "./navigator/NavigationUtil";
-export default (props: any) => { 
+export default (props:any) => { 
     const { navigation } = props;
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');

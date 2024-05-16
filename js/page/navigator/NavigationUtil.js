@@ -3,7 +3,6 @@ import { StackActions } from "@react-navigation/native";
  * 全局导航跳转工具类
  */
 export default class NavigationUtil {
-    static navigation: any;
 /**
  * 跳转到指定页面
  * @param parmas 跳转到页面传递的参数
@@ -45,9 +44,9 @@ export default class NavigationUtil {
      */
     static login(parmas) {
         const { navigation } = parmas;
-        // if (!navigation) { 
-        //     navigation = NavigationUtil.navigation;
-        // }
+        if (!navigation) { 
+            navigation = NavigationUtil.navigation;
+        }
         navigation.dispatch(StackActions.replace(('LoginPage'), {}));
     }
 
@@ -57,9 +56,9 @@ export default class NavigationUtil {
      */
     static registration(parmas) {
         const { navigation } = parmas;
-        // if (!navigation) { 
-        //     navigation = NavigationUtil.navigation;
-        // }
+        if (!navigation) { 
+            navigation = NavigationUtil.navigation;
+        }
         navigation.dispatch(StackActions.replace(('RegistPage'), {}));
     }
 
