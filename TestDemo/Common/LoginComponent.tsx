@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Linking, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-export const Input = (props) => {
+export const Input = (props:any) => {
     const { label, placeholder, shortline, secure, onChangeText } = props;
     return (
         <View style={{ backgroundColor: 'white' }}>
@@ -24,7 +24,7 @@ export const Input = (props) => {
     );
 };
 
-export const ConfirmButton = (props) => {
+export const ConfirmButton = (props:any) => {
     const { title, onclick } = props;
     return (
         <TouchableOpacity style={styles.confirmLayout} onPress={onclick}>
@@ -33,7 +33,7 @@ export const ConfirmButton = (props) => {
     );
 };
 
-export const Tips = (props) => {
+export const Tips = (props:any) => {
     const { msg, helpUrl } = props;
     return (
         <View style={styles.tipsLayout}>
@@ -45,7 +45,7 @@ export const Tips = (props) => {
     );
 };
 
-export const NavBar = (props) => {
+export const NavBar = (props:any) => {
     const { title, rightTitle, onRightCick } = props;
     return (
         <View style={styles.navBar}>
